@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebasneueregular" type="text/css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/css/kotek-no.ico" />
+    <title>Assassin cats!</title>
+</head>
+
+<body>
+   {% include "navigation.html" %} 
+    
+    
+   <div class="container ad2 order">
+    <img class="ad_img" src="{{promodata.img}}" >
+    <div class="ad_info">
+            <p class="ad_header2 bebas"> {{promodata.header}} </p>
+            {% for mydata in data %}
+            <p class="ad_text2 OpenSans"> {{mydata.str}}</p> 
+            {% endfor %}
+    </div>
+</div>
+
+    <div class="container ad3">
+    <div class="ad_info">
+            <p class="ad_header bebas"> Есть проблемы? Напишите нам: </p>
+    </div>
+    </div>
+
+<div class="container">
+    <form class="decor" enctype="multipart/form-data" method="post" id="form" action="../send.php">
+        <div class="form-left-decoration"></div>
+        <div class="form-right-decoration"></div>
+        <div class="circle"></div>
+        <div class="form-inner">   
+            <p class="ad_header2 OpenSans">Имя</p>
+ 	        <input placeholder="Представьтесь" name="name" type="text" >
+ 	        <p class="ad_header2 OpenSans">Email</p>
+ 	        <input placeholder="Укажите почту" name="email" type="email" >
+ 	         <p class="ad_header2 OpenSans">Сообщение</p>
+ 	         <textarea name="text"></textarea>
+ 	         <p><input value="Отправить" type="submit"></p>  
+        </div>
+    </form>
+</div>
+    
+</body>
+</html>

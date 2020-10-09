@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebasneueregular" type="text/css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/css/kotek-no.ico" />
+    <title>Assassin cats!</title>
+</head>
+
+<body>
+   {% include "navigation.html" %} 
+    
+    {% if bool==1 %}
+    <div class="container ad2">
+            <p class="ad_header2 bebas"> Ваш отзыв принят! </p>
+    </div>
+    {% endif %}
+    
+    
+    <div class="container ad3">
+    <div class="ad_info">
+            <p class="ad_header bebas"> Наши величайшие достижения: </p>
+    </div>
+    </div>
+    
+    
+    
+    
+    <div class="container mygrid">
+        {% for data in database%}
+        <div class="demo_profile2">
+           <img class="demo_img" src="{{ data.myimg }}">
+            <p class="texttype2 bebas">{{ data.killed }}</p>
+            <a class="texttype OpenSans" href="../profilecat.php?num={{data.name_index}}">{{ data.name }}</a>
+        </div>
+        {% endfor %}
+    </div>
+    
+    
+    <div class="container ad3">
+    <div class="ad_info">
+            <p class="ad_header bebas"> Наши отзывы: </p>
+    </div>
+    </div>
+    
+    {% set k=0 %}
+    {% for mydata in reviews%}
+      {% if k<i %}
+    <div class="container review_outside">
+        <p class="ad_header bebas">{{mydata.name}}:</p>
+        <div class="form-inner">
+         <textarea rows="3" readonly>{{mydata.text}}</textarea>
+        </div>
+    </div>
+     {% endif %}
+    {% set k=k+1 %}
+    {% endfor %}
+    
+    
+    
+    
+    <div class="container">
+        <form class="decor" action="../btn_review.php" method="post">
+            <div class="form-left-decoration"></div>
+            <div class="form-right-decoration"></div>
+            <div class="circle"></div>
+            <div class="form-inner">
+                <p class="ad_header OpenSans">Написать нам</p>
+                <input type="text" placeholder="Имя" name="name" required maxlength="15">
+                <textarea placeholder="Сообщение..." rows="3" name="text" required maxlength="250" wrap="soft"></textarea>
+                <input type="submit" value="Отправить">
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

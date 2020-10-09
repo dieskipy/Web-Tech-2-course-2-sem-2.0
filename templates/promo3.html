@@ -1,0 +1,15 @@
+<div class="container ad order">
+        <img class="ad_img" src= "{{promodata.img}}" >
+        <div class="ad_info">
+            <p class="ad_header bebas"> {{ promodata.header}} </p>
+            <p class="ad_text OpenSans"> {{promodata.content}}</p> 
+            
+            <ul>
+            
+            {% for orderdata in data %}
+            <li class="ad_text OpenSans"> {{ orderdata.str}}</li> 
+            {% endfor %}
+            
+            </ul>
+        </div>
+     </div>
